@@ -52,11 +52,14 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
 
-        forecast(latitude, longitude, (error, { frcst } = {}) => {
+        forecast(latitude, longitude, (error, { frcst, logo, description, humidity } = {}) => {
             if (error) { return res.send({ error }) }
             res.send({
                 'forecast': frcst,
-                'location': name
+                'location': name,
+                logo,
+                description,
+                humidity
             })
             // console.log(name)
             // console.log(Wdata)

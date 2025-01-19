@@ -13,7 +13,12 @@ const forecast = (lat, long, callback) => {
             callback('not found', undefined)
         }
         else {
-            callback(undefined, { frcst: 'it is currently ' + body.current.temperature + ' degrees, & feels like ' + body.current.feelslike + ' degrees.' })
+            callback(undefined, {
+                frcst: 'It is currently ' + body.current.temperature + ' degrees out & feels like ' + body.current.feelslike + ' degrees',
+                logo: body.current.weather_icons[0],
+                description: body.current.weather_descriptions[0],
+                humidity: body.current.humidity
+            })
         }
     })
 }
